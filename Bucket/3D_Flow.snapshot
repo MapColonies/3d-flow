@@ -13,39 +13,6 @@
           "backPressureObjectThreshold" : 10000,
           "bends" : [ {
             "x" : 1624.0,
-            "y" : -112.0
-          } ],
-          "componentType" : "CONNECTION",
-          "destination" : {
-            "comments" : "",
-            "groupId" : "f419a9a7-f7ee-3c75-9d70-e551d5bd539f",
-            "id" : "9e6c4e6b-728d-3f1c-aba0-9ed2bc9ceb69",
-            "name" : "Extract Attributes from Json",
-            "type" : "PROCESSOR"
-          },
-          "flowFileExpiration" : "0 sec",
-          "groupIdentifier" : "f419a9a7-f7ee-3c75-9d70-e551d5bd539f",
-          "identifier" : "f494c8ed-c6c0-3445-96b8-a1d8dd294d0d",
-          "labelIndex" : 0,
-          "loadBalanceCompression" : "DO_NOT_COMPRESS",
-          "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-          "name" : "",
-          "partitioningAttribute" : "",
-          "prioritizers" : [ ],
-          "selectedRelationships" : [ "success" ],
-          "source" : {
-            "comments" : "",
-            "groupId" : "f419a9a7-f7ee-3c75-9d70-e551d5bd539f",
-            "id" : "0af2a896-8ac9-3652-8647-4350d478c0a9",
-            "name" : "Listen on POST requests",
-            "type" : "PROCESSOR"
-          },
-          "zIndex" : 0
-        }, {
-          "backPressureDataSizeThreshold" : "1 GB",
-          "backPressureObjectThreshold" : 10000,
-          "bends" : [ {
-            "x" : 1624.0,
             "y" : 304.0
           } ],
           "componentType" : "CONNECTION",
@@ -71,6 +38,39 @@
             "groupId" : "f419a9a7-f7ee-3c75-9d70-e551d5bd539f",
             "id" : "f2ddc1c1-7682-3356-9ac4-94c61b485dc8",
             "name" : "Fetch Files",
+            "type" : "PROCESSOR"
+          },
+          "zIndex" : 0
+        }, {
+          "backPressureDataSizeThreshold" : "1 GB",
+          "backPressureObjectThreshold" : 10000,
+          "bends" : [ {
+            "x" : 1624.0,
+            "y" : -104.0
+          } ],
+          "componentType" : "CONNECTION",
+          "destination" : {
+            "comments" : "",
+            "groupId" : "f419a9a7-f7ee-3c75-9d70-e551d5bd539f",
+            "id" : "9e6c4e6b-728d-3f1c-aba0-9ed2bc9ceb69",
+            "name" : "Extract Attributes from Json",
+            "type" : "PROCESSOR"
+          },
+          "flowFileExpiration" : "0 sec",
+          "groupIdentifier" : "f419a9a7-f7ee-3c75-9d70-e551d5bd539f",
+          "identifier" : "ee3fcd80-d21c-316c-a56e-292e7920f9ba",
+          "labelIndex" : 0,
+          "loadBalanceCompression" : "DO_NOT_COMPRESS",
+          "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+          "name" : "",
+          "partitioningAttribute" : "",
+          "prioritizers" : [ ],
+          "selectedRelationships" : [ "success" ],
+          "source" : {
+            "comments" : "",
+            "groupId" : "f419a9a7-f7ee-3c75-9d70-e551d5bd539f",
+            "id" : "0af2a896-8ac9-3652-8647-4350d478c0a9",
+            "name" : "Listen on POST requests",
             "type" : "PROCESSOR"
           },
           "zIndex" : 0
@@ -2188,6 +2188,7 @@
             "Destination" : "flowfile-attribute",
             "jobId" : "$.jobId",
             "path" : "$.path",
+            "metadata" : "$.metadata.productId",
             "Return Type" : "auto-detect",
             "Null Value Representation" : "empty string",
             "Path Not Found Behavior" : "ignore"
@@ -2209,6 +2210,12 @@
               "displayName" : "path",
               "identifiesControllerService" : false,
               "name" : "path",
+              "sensitive" : false
+            },
+            "metadata" : {
+              "displayName" : "metadata",
+              "identifiesControllerService" : false,
+              "name" : "metadata",
               "sensitive" : false
             },
             "Return Type" : {
@@ -3808,7 +3815,7 @@
             "multipart-request-max-size" : "1 MB",
             "Max Unconfirmed Flowfile Time" : "60 secs",
             "Return Code" : "201",
-            "Listening Port" : "#{3dFlowPort}",
+            "Listening Port" : "#{port}",
             "Authorized DN Pattern" : ".*"
           },
           "propertyDescriptors" : {
@@ -4214,11 +4221,6 @@
             "value" : "http://localhost:8081/jobs"
           }, {
             "description" : "",
-            "name" : "3dFlowPort",
-            "sensitive" : false,
-            "value" : "8083"
-          }, {
-            "description" : "",
             "name" : "bucket",
             "sensitive" : false,
             "value" : "3dtiles"
@@ -4227,6 +4229,11 @@
             "name" : "catalogUrl",
             "sensitive" : false,
             "value" : "http://localhost:8085/metadata"
+          }, {
+            "description" : "",
+            "name" : "port",
+            "sensitive" : false,
+            "value" : "8083"
           }, {
             "description" : "",
             "name" : "helpersUrl",
