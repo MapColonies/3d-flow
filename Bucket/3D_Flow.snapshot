@@ -792,6 +792,7 @@
         "labels" : [ ],
         "name" : "3D Flow",
         "outputPorts" : [ ],
+        "parameterContextName" : "3dFlowParams",
         "position" : {
           "x" : 912.0,
           "y" : 232.0
@@ -971,8 +972,8 @@
             "idle-timeout" : "5 mins",
             "Use Chunked Encoding" : "false",
             "Follow Redirects" : "True",
-            "Remote URL" : "http://localhost:8084/validations",
-            "Content-Type" : "${mime.type}",
+            "Remote URL" : "#{helpersUrl}",
+            "Content-Type" : "application/json",
             "max-idle-connections" : "5",
             "Read Timeout" : "15 secs",
             "Max Length To Put In Attribute" : "256",
@@ -1616,7 +1617,7 @@
             "use-chunked-encoding" : "true",
             "Object Key" : "${filename}",
             "Multipart Threshold" : "5 GB",
-            "Bucket" : "3dtiles/inProgress",
+            "Bucket" : "#{bucket}/inProgress",
             "Multipart Upload AgeOff Interval" : "60 min",
             "use-path-style-access" : "false",
             "Write Permission User List" : "${s3.permissions.write.users}",
@@ -1944,8 +1945,8 @@
             "idle-timeout" : "5 mins",
             "Use Chunked Encoding" : "false",
             "Follow Redirects" : "True",
-            "Remote URL" : "http://localhost:8081/jobs/${jobId}",
-            "Content-Type" : "${mime.type}",
+            "Remote URL" : "#{jobsUrl}/${jobId}",
+            "Content-Type" : "application/json",
             "max-idle-connections" : "5",
             "Read Timeout" : "15 secs",
             "Max Length To Put In Attribute" : "256",
@@ -2423,7 +2424,7 @@
             "use-chunked-encoding" : "true",
             "Object Key" : "${filename}",
             "Multipart Threshold" : "5 GB",
-            "Bucket" : "3dtiles/completed",
+            "Bucket" : "#{bucket}/completed",
             "Multipart Upload AgeOff Interval" : "60 min",
             "use-path-style-access" : "false",
             "Write Permission User List" : "${s3.permissions.write.users}",
@@ -2704,7 +2705,7 @@
             "use-chunked-encoding" : "true",
             "Object Key" : "${filename}",
             "Multipart Threshold" : "5 GB",
-            "Bucket" : "3dtiles/failed",
+            "Bucket" : "#{bucket}/failed",
             "Multipart Upload AgeOff Interval" : "60 min",
             "use-path-style-access" : "false",
             "Write Permission User List" : "${s3.permissions.write.users}",
@@ -3031,8 +3032,8 @@
             "idle-timeout" : "5 mins",
             "Use Chunked Encoding" : "false",
             "Follow Redirects" : "True",
-            "Remote URL" : "http://localhost:8081/jobs/${jobId}",
-            "Content-Type" : "${mime.type}",
+            "Remote URL" : "#{jobsUrl}/${jobId}",
+            "Content-Type" : "application/json",
             "max-idle-connections" : "5",
             "Read Timeout" : "15 secs",
             "Max Length To Put In Attribute" : "256",
@@ -3562,8 +3563,8 @@
             "idle-timeout" : "5 mins",
             "Use Chunked Encoding" : "false",
             "Follow Redirects" : "True",
-            "Remote URL" : "http://localhost:8084/catalogue",
-            "Content-Type" : "${mime.type}",
+            "Remote URL" : "#{catalogUrl}",
+            "Content-Type" : "application/json",
             "max-idle-connections" : "5",
             "Read Timeout" : "15 secs",
             "Max Length To Put In Attribute" : "256",
@@ -3807,7 +3808,7 @@
             "multipart-request-max-size" : "1 MB",
             "Max Unconfirmed Flowfile Time" : "60 secs",
             "Return Code" : "201",
-            "Listening Port" : "8083",
+            "Listening Port" : "#{3dFlowPort}",
             "Authorized DN Pattern" : ".*"
           },
           "propertyDescriptors" : {
@@ -3910,8 +3911,8 @@
             "idle-timeout" : "5 mins",
             "Use Chunked Encoding" : "false",
             "Follow Redirects" : "True",
-            "Remote URL" : "http://localhost:8081/jobs/${jobId}",
-            "Content-Type" : "${mime.type}",
+            "Remote URL" : "#{jobsUrl}/${jobId}",
+            "Content-Type" : "application/json",
             "max-idle-connections" : "5",
             "Read Timeout" : "15 secs",
             "Max Length To Put In Attribute" : "256",
@@ -4198,7 +4199,42 @@
         "variables" : { }
       },
       "flowEncodingVersion" : "1.0",
-      "parameterContexts" : { }
+      "parameterContexts" : {
+        "3dFlowParams" : {
+          "name" : "3dFlowParams",
+          "parameters" : [ {
+            "description" : "",
+            "name" : "modelsUrl",
+            "sensitive" : false,
+            "value" : "http://localhost:8082/models"
+          }, {
+            "description" : "",
+            "name" : "jobsUrl",
+            "sensitive" : false,
+            "value" : "http://localhost:8081/jobs"
+          }, {
+            "description" : "",
+            "name" : "3dFlowPort",
+            "sensitive" : false,
+            "value" : "8083"
+          }, {
+            "description" : "",
+            "name" : "bucket",
+            "sensitive" : false,
+            "value" : "3dtiles"
+          }, {
+            "description" : "",
+            "name" : "catalogUrl",
+            "sensitive" : false,
+            "value" : "http://localhost:8085/metadata"
+          }, {
+            "description" : "",
+            "name" : "helpersUrl",
+            "sensitive" : false,
+            "value" : "http://localhost:8084/validations"
+          } ]
+        }
+      }
     }
   }
 }
