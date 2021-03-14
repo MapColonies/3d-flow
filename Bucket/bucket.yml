@@ -1,7 +1,7 @@
 flows:
-  a8f721b2-60dc-4f35-be82-61b116100732: {ver: 2, file: 3D_Ingestion_Data_Flow.snapshot,
-    comments: Flow Id, author: anonymous, created: 1615706202583, flowName: 3D Ingestion
-      Data Flow, flowDesc: 3D Ingestion Data Flow}
+  a8f721b2-60dc-4f35-be82-61b116100732: {ver: 3, file: 3D_Ingestion_Data_Flow.snapshot,
+    comments: Metadata file, author: anonymous, created: 1615723736575, flowName: 3D
+      Ingestion Data Flow, flowDesc: 3D Ingestion Data Flow}
   3302933c-5650-466b-b4ad-204bf83ab1aa: {ver: 5, file: 3D_Flow.snapshot, comments: Fix,
     author: anonymous, created: 1615470650972, flowName: 3D Flow, flowDesc: ''}
 layoutVer: 1
