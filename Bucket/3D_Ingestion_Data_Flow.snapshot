@@ -237,11 +237,44 @@
             "backPressureDataSizeThreshold" : "1 GB",
             "backPressureObjectThreshold" : 10000,
             "bends" : [ {
-              "x" : -408.0,
-              "y" : 664.0
+              "x" : -1760.0,
+              "y" : 440.0
+            } ],
+            "componentType" : "CONNECTION",
+            "destination" : {
+              "comments" : "",
+              "groupId" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
+              "id" : "f0bbec2d-35f2-314c-9041-6444b4bb6f77",
+              "name" : "Route based on values",
+              "type" : "PROCESSOR"
+            },
+            "flowFileExpiration" : "0 sec",
+            "groupIdentifier" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
+            "identifier" : "e934d7c0-238a-3dc4-ac96-b4f1c950ded2",
+            "labelIndex" : 0,
+            "loadBalanceCompression" : "DO_NOT_COMPRESS",
+            "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+            "name" : "",
+            "partitioningAttribute" : "",
+            "prioritizers" : [ ],
+            "selectedRelationships" : [ "matched" ],
+            "source" : {
+              "comments" : "",
+              "groupId" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
+              "id" : "75ad40b0-78d6-3768-b3cc-24b7c22d67d3",
+              "name" : "Retrieve POST /validations response",
+              "type" : "PROCESSOR"
+            },
+            "zIndex" : 0
+          }, {
+            "backPressureDataSizeThreshold" : "1 GB",
+            "backPressureObjectThreshold" : 10000,
+            "bends" : [ {
+              "x" : -448.0,
+              "y" : 760.0
             }, {
-              "x" : -408.0,
-              "y" : 136.0
+              "x" : -448.0,
+              "y" : 272.0
             } ],
             "componentType" : "CONNECTION",
             "destination" : {
@@ -280,8 +313,8 @@
             "destination" : {
               "comments" : "",
               "groupId" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
-              "id" : "2c192b92-bf79-3121-84f7-735be8909aaa",
-              "name" : "Invoke GET /validations",
+              "id" : "aa236e13-6aed-35cf-ac84-22e065c01025",
+              "name" : "Set POST /validations body",
               "type" : "PROCESSOR"
             },
             "flowFileExpiration" : "0 sec",
@@ -307,7 +340,7 @@
             "backPressureObjectThreshold" : 10000,
             "bends" : [ {
               "x" : -1448.0,
-              "y" : 344.0
+              "y" : 608.0
             } ],
             "componentType" : "CONNECTION",
             "destination" : {
@@ -402,11 +435,8 @@
             "backPressureDataSizeThreshold" : "1 GB",
             "backPressureObjectThreshold" : 10000,
             "bends" : [ {
-              "x" : -1096.0,
-              "y" : 232.0
-            }, {
-              "x" : -1096.0,
-              "y" : 312.0
+              "x" : -1072.0,
+              "y" : 504.0
             } ],
             "componentType" : "CONNECTION",
             "destination" : {
@@ -419,7 +449,7 @@
             "flowFileExpiration" : "0 sec",
             "groupIdentifier" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
             "identifier" : "e08877f5-ecfe-329d-971b-fc94676736b5",
-            "labelIndex" : 2,
+            "labelIndex" : 0,
             "loadBalanceCompression" : "DO_NOT_COMPRESS",
             "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
             "name" : "",
@@ -438,11 +468,11 @@
             "backPressureDataSizeThreshold" : "1 GB",
             "backPressureObjectThreshold" : 10000,
             "bends" : [ {
-              "x" : -2488.0,
-              "y" : 664.0
+              "x" : -2344.0,
+              "y" : 760.0
             }, {
-              "x" : -2488.0,
-              "y" : 200.0
+              "x" : -2344.0,
+              "y" : 272.0
             } ],
             "componentType" : "CONNECTION",
             "destination" : {
@@ -475,7 +505,7 @@
             "backPressureObjectThreshold" : 10000,
             "bends" : [ {
               "x" : -2088.0,
-              "y" : 448.0
+              "y" : 664.0
             } ],
             "componentType" : "CONNECTION",
             "destination" : {
@@ -508,7 +538,7 @@
             "backPressureObjectThreshold" : 10000,
             "bends" : [ {
               "x" : -704.0,
-              "y" : 448.0
+              "y" : 664.0
             } ],
             "componentType" : "CONNECTION",
             "destination" : {
@@ -679,8 +709,41 @@
             "destination" : {
               "comments" : "",
               "groupId" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
-              "id" : "f0bbec2d-35f2-314c-9041-6444b4bb6f77",
-              "name" : "Route based on values",
+              "id" : "2c192b92-bf79-3121-84f7-735be8909aaa",
+              "name" : "Invoke POST /validations API",
+              "type" : "PROCESSOR"
+            },
+            "flowFileExpiration" : "0 sec",
+            "groupIdentifier" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
+            "identifier" : "f07bd9fc-ee06-3b07-9415-5e83de3a59d8",
+            "labelIndex" : 0,
+            "loadBalanceCompression" : "DO_NOT_COMPRESS",
+            "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+            "name" : "",
+            "partitioningAttribute" : "",
+            "prioritizers" : [ ],
+            "selectedRelationships" : [ "success" ],
+            "source" : {
+              "comments" : "",
+              "groupId" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
+              "id" : "aa236e13-6aed-35cf-ac84-22e065c01025",
+              "name" : "Set POST /validations body",
+              "type" : "PROCESSOR"
+            },
+            "zIndex" : 0
+          }, {
+            "backPressureDataSizeThreshold" : "1 GB",
+            "backPressureObjectThreshold" : 10000,
+            "bends" : [ {
+              "x" : -1760.0,
+              "y" : 304.0
+            } ],
+            "componentType" : "CONNECTION",
+            "destination" : {
+              "comments" : "",
+              "groupId" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
+              "id" : "75ad40b0-78d6-3768-b3cc-24b7c22d67d3",
+              "name" : "Retrieve POST /validations response",
               "type" : "PROCESSOR"
             },
             "flowFileExpiration" : "0 sec",
@@ -692,12 +755,12 @@
             "name" : "",
             "partitioningAttribute" : "",
             "prioritizers" : [ ],
-            "selectedRelationships" : [ "Response", "Original" ],
+            "selectedRelationships" : [ "Response" ],
             "source" : {
               "comments" : "",
               "groupId" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
               "id" : "2c192b92-bf79-3121-84f7-735be8909aaa",
-              "name" : "Invoke GET /validations",
+              "name" : "Invoke POST /validations API",
               "type" : "PROCESSOR"
             },
             "zIndex" : 0
@@ -782,10 +845,7 @@
             "connections" : [ {
               "backPressureDataSizeThreshold" : "1 GB",
               "backPressureObjectThreshold" : 10000,
-              "bends" : [ {
-                "x" : 824.0,
-                "y" : 320.0
-              } ],
+              "bends" : [ ],
               "componentType" : "CONNECTION",
               "destination" : {
                 "comments" : "",
@@ -808,7 +868,7 @@
                 "comments" : "",
                 "groupId" : "c296f6e2-fc4f-3c6f-aa80-5e65aaccb644",
                 "id" : "3a14aa1d-3a10-3a3d-a50b-41df033c1dd1",
-                "name" : "Invoke PATCH /jobs with current status",
+                "name" : "Invoke PATCH /jobs with new status",
                 "type" : "PROCESSOR"
               },
               "zIndex" : 0
@@ -824,7 +884,7 @@
                 "comments" : "",
                 "groupId" : "c296f6e2-fc4f-3c6f-aa80-5e65aaccb644",
                 "id" : "3a14aa1d-3a10-3a3d-a50b-41df033c1dd1",
-                "name" : "Invoke PATCH /jobs with current status",
+                "name" : "Invoke PATCH /jobs with new status",
                 "type" : "PROCESSOR"
               },
               "flowFileExpiration" : "0 sec",
@@ -841,40 +901,7 @@
                 "comments" : "",
                 "groupId" : "c296f6e2-fc4f-3c6f-aa80-5e65aaccb644",
                 "id" : "00dc44f9-f4ca-3c46-a78c-c46acc17b527",
-                "name" : "Set Job Status Payload",
-                "type" : "PROCESSOR"
-              },
-              "zIndex" : 0
-            }, {
-              "backPressureDataSizeThreshold" : "1 GB",
-              "backPressureObjectThreshold" : 10000,
-              "bends" : [ {
-                "x" : 552.0,
-                "y" : 320.0
-              } ],
-              "componentType" : "CONNECTION",
-              "destination" : {
-                "comments" : "",
-                "groupId" : "c296f6e2-fc4f-3c6f-aa80-5e65aaccb644",
-                "id" : "d406e79f-01e0-3355-86ee-92214afd9487",
-                "name" : "output",
-                "type" : "OUTPUT_PORT"
-              },
-              "flowFileExpiration" : "0 sec",
-              "groupIdentifier" : "c296f6e2-fc4f-3c6f-aa80-5e65aaccb644",
-              "identifier" : "a0c03e41-9a22-3136-873b-c091d30173ee",
-              "labelIndex" : 0,
-              "loadBalanceCompression" : "DO_NOT_COMPRESS",
-              "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-              "name" : "",
-              "partitioningAttribute" : "",
-              "prioritizers" : [ ],
-              "selectedRelationships" : [ "Original" ],
-              "source" : {
-                "comments" : "",
-                "groupId" : "c296f6e2-fc4f-3c6f-aa80-5e65aaccb644",
-                "id" : "3a14aa1d-3a10-3a3d-a50b-41df033c1dd1",
-                "name" : "Invoke PATCH /jobs with current status",
+                "name" : "Set PATCH /jobs body",
                 "type" : "PROCESSOR"
               },
               "zIndex" : 0
@@ -887,7 +914,7 @@
                 "comments" : "",
                 "groupId" : "c296f6e2-fc4f-3c6f-aa80-5e65aaccb644",
                 "id" : "00dc44f9-f4ca-3c46-a78c-c46acc17b527",
-                "name" : "Set Job Status Payload",
+                "name" : "Set PATCH /jobs body",
                 "type" : "PROCESSOR"
               },
               "flowFileExpiration" : "0 sec",
@@ -941,18 +968,18 @@
               "name" : "output",
               "position" : {
                 "x" : 568.0,
-                "y" : 352.0
+                "y" : 368.0
               },
               "type" : "OUTPUT_PORT"
             } ],
             "parameterContextName" : "3dFlowParams",
             "position" : {
               "x" : -2280.0,
-              "y" : 112.0
+              "y" : 184.0
             },
             "processGroups" : [ ],
             "processors" : [ {
-              "autoTerminatedRelationships" : [ "No Retry", "Retry", "Failure" ],
+              "autoTerminatedRelationships" : [ "No Retry", "Retry", "Original", "Failure" ],
               "bulletinLevel" : "WARN",
               "bundle" : {
                 "artifact" : "nifi-standard-nar",
@@ -965,7 +992,7 @@
               "executionNode" : "ALL",
               "groupIdentifier" : "c296f6e2-fc4f-3c6f-aa80-5e65aaccb644",
               "identifier" : "3a14aa1d-3a10-3a3d-a50b-41df033c1dd1",
-              "name" : "Invoke PATCH /jobs with current status",
+              "name" : "Invoke PATCH /jobs with new status",
               "penaltyDuration" : "30 sec",
               "position" : {
                 "x" : 512.0,
@@ -1215,7 +1242,7 @@
               "executionNode" : "ALL",
               "groupIdentifier" : "c296f6e2-fc4f-3c6f-aa80-5e65aaccb644",
               "identifier" : "00dc44f9-f4ca-3c46-a78c-c46acc17b527",
-              "name" : "Set Job Status Payload",
+              "name" : "Set PATCH /jobs body",
               "penaltyDuration" : "30 sec",
               "position" : {
                 "x" : 512.0,
@@ -1281,7 +1308,7 @@
                 "comments" : "",
                 "groupId" : "2331cbeb-527b-3fde-b861-056a19af37dd",
                 "id" : "781b02c9-ea71-33a6-8a4c-00dfff5433b7",
-                "name" : "Fetch Metadata File",
+                "name" : "Fetch Metadata Json File",
                 "type" : "PROCESSOR"
               },
               "flowFileExpiration" : "0 sec",
@@ -1331,7 +1358,7 @@
                 "comments" : "",
                 "groupId" : "2331cbeb-527b-3fde-b861-056a19af37dd",
                 "id" : "781b02c9-ea71-33a6-8a4c-00dfff5433b7",
-                "name" : "Fetch Metadata File",
+                "name" : "Fetch Metadata Json File",
                 "type" : "PROCESSOR"
               },
               "zIndex" : 0
@@ -1356,7 +1383,7 @@
               "name" : "",
               "partitioningAttribute" : "",
               "prioritizers" : [ ],
-              "selectedRelationships" : [ "Response", "Original" ],
+              "selectedRelationships" : [ "Response" ],
               "source" : {
                 "comments" : "",
                 "groupId" : "2331cbeb-527b-3fde-b861-056a19af37dd",
@@ -1405,7 +1432,7 @@
             "parameterContextName" : "3dFlowParams",
             "position" : {
               "x" : -1640.0,
-              "y" : 816.0
+              "y" : 912.0
             },
             "processGroups" : [ ],
             "processors" : [ {
@@ -1422,7 +1449,7 @@
               "executionNode" : "ALL",
               "groupIdentifier" : "2331cbeb-527b-3fde-b861-056a19af37dd",
               "identifier" : "781b02c9-ea71-33a6-8a4c-00dfff5433b7",
-              "name" : "Fetch Metadata File",
+              "name" : "Fetch Metadata Json File",
               "penaltyDuration" : "30 sec",
               "position" : {
                 "x" : 504.0,
@@ -1481,7 +1508,7 @@
               "type" : "org.apache.nifi.processors.standard.FetchFile",
               "yieldDuration" : "1 sec"
             }, {
-              "autoTerminatedRelationships" : [ "No Retry", "Retry", "Failure" ],
+              "autoTerminatedRelationships" : [ "No Retry", "Retry", "Original", "Failure" ],
               "bulletinLevel" : "WARN",
               "bundle" : {
                 "artifact" : "nifi-standard-nar",
@@ -1803,8 +1830,8 @@
               "backPressureDataSizeThreshold" : "1 GB",
               "backPressureObjectThreshold" : 10000,
               "bends" : [ {
-                "x" : 314.99987244824024,
-                "y" : 258.99994248506755
+                "x" : 328.0,
+                "y" : 264.0
               } ],
               "componentType" : "CONNECTION",
               "destination" : {
@@ -1837,7 +1864,7 @@
               "backPressureObjectThreshold" : 10000,
               "bends" : [ {
                 "x" : 328.0,
-                "y" : 392.0
+                "y" : 400.0
               } ],
               "componentType" : "CONNECTION",
               "destination" : {
@@ -1869,10 +1896,10 @@
               "backPressureDataSizeThreshold" : "1 GB",
               "backPressureObjectThreshold" : 10000,
               "bends" : [ {
-                "x" : 957.0,
+                "x" : 956.0,
                 "y" : 439.00006103515625
               }, {
-                "x" : 957.0,
+                "x" : 956.0,
                 "y" : 479.00006103515625
               } ],
               "componentType" : "CONNECTION",
@@ -1974,7 +2001,7 @@
             "parameterContextName" : "3dFlowParams",
             "position" : {
               "x" : -896.0,
-              "y" : 48.0
+              "y" : 184.0
             },
             "processGroups" : [ ],
             "processors" : [ {
@@ -2013,7 +2040,7 @@
                 "use-chunked-encoding" : "true",
                 "Object Key" : "${filename}",
                 "Multipart Threshold" : "5 GB",
-                "Bucket" : "#{bucket}/${status}",
+                "Bucket" : "#{bucket}/${status}/${flowId}${relative.path}",
                 "Multipart Upload AgeOff Interval" : "60 min",
                 "use-path-style-access" : "false",
                 "Write Permission User List" : "${s3.permissions.write.users}",
@@ -2280,7 +2307,7 @@
               },
               "properties" : {
                 "Script Engine" : "Groovy",
-                "Script Body" : "import java.nio.charset.StandardCharsets\nimport groovy.io.FileType\n\ndef flowFile = session.get()\nif(!flowFile) return\ndef flowFiles = [] as List<FlowFile>\ndef fetchDirectory = flowFile.getAttribute('path')\ndef listOfFiles = []\ndef dir = new File(fetchDirectory)\nif(dir.exists()) {\n   dir.eachFileRecurse (FileType.FILES) { file ->\n      listOfFiles << file\n   }\n}\nlistOfFiles.each { i ->\n   def newFlowFile = session.create()\n   session.putAttribute(newFlowFile, 'absolute.path', i.path.substring(0, i.path.lastIndexOf(File.separator)))\n   session.putAttribute(newFlowFile, 'filename', i.getName())\n   flowFiles << newFlowFile\n}\nsession.remove(flowFile)\nsession.transfer(flowFiles, REL_SUCCESS)"
+                "Script Body" : "import java.nio.charset.StandardCharsets\nimport groovy.io.FileType\n\ndef flowFile = session.get()\nif(!flowFile) return\ndef flowFiles = [] as List<FlowFile>\ndef fetchDirectory = flowFile.getAttribute('path')\ndef listOfFiles = []\ndef dir = new File(fetchDirectory)\nif(dir.exists()) {\n   dir.eachFileRecurse (FileType.FILES) { file ->\n      listOfFiles << file\n   }\n}\nlistOfFiles.each { i ->\n   def newFlowFile = session.create()\n   session.putAttribute(newFlowFile, 'absolute.path', i.path.substring(0, i.path.lastIndexOf(File.separator)))\n   session.putAttribute(newFlowFile, 'relative.path', i.path.minus(fetchDirectory).minus('/' + i.getName()))\n   session.putAttribute(newFlowFile, 'filename', i.getName())\n   session.putAttribute(newFlowFile, 'status', flowFile.getAttribute('status'))\n   session.putAttribute(newFlowFile, 'flowId', flowFile.getAttribute('flowId'))\n   flowFiles << newFlowFile\n}\nsession.remove(flowFile)\nsession.transfer(flowFiles, REL_SUCCESS)"
               },
               "propertyDescriptors" : {
                 "Script File" : {
@@ -2836,7 +2863,7 @@
             "penaltyDuration" : "30 sec",
             "position" : {
               "x" : -1624.0,
-              "y" : 168.0
+              "y" : 440.0
             },
             "properties" : {
               "valid" : "${validations:equals('valid')}",
@@ -2871,7 +2898,73 @@
             "type" : "org.apache.nifi.processors.standard.RouteOnAttribute",
             "yieldDuration" : "1 sec"
           }, {
-            "autoTerminatedRelationships" : [ "No Retry", "Retry", "Failure" ],
+            "autoTerminatedRelationships" : [ "failure", "unmatched" ],
+            "bulletinLevel" : "WARN",
+            "bundle" : {
+              "artifact" : "nifi-standard-nar",
+              "group" : "org.apache.nifi",
+              "version" : "1.12.1"
+            },
+            "comments" : "",
+            "componentType" : "PROCESSOR",
+            "concurrentlySchedulableTaskCount" : 1,
+            "executionNode" : "ALL",
+            "groupIdentifier" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
+            "identifier" : "75ad40b0-78d6-3768-b3cc-24b7c22d67d3",
+            "name" : "Retrieve POST /validations response",
+            "penaltyDuration" : "30 sec",
+            "position" : {
+              "x" : -1624.0,
+              "y" : 304.0
+            },
+            "properties" : {
+              "Destination" : "flowfile-attribute",
+              "Return Type" : "auto-detect",
+              "Null Value Representation" : "empty string",
+              "validations" : "$.validations",
+              "Path Not Found Behavior" : "ignore"
+            },
+            "propertyDescriptors" : {
+              "Destination" : {
+                "displayName" : "Destination",
+                "identifiesControllerService" : false,
+                "name" : "Destination",
+                "sensitive" : false
+              },
+              "Return Type" : {
+                "displayName" : "Return Type",
+                "identifiesControllerService" : false,
+                "name" : "Return Type",
+                "sensitive" : false
+              },
+              "Null Value Representation" : {
+                "displayName" : "Null Value Representation",
+                "identifiesControllerService" : false,
+                "name" : "Null Value Representation",
+                "sensitive" : false
+              },
+              "validations" : {
+                "displayName" : "validations",
+                "identifiesControllerService" : false,
+                "name" : "validations",
+                "sensitive" : false
+              },
+              "Path Not Found Behavior" : {
+                "displayName" : "Path Not Found Behavior",
+                "identifiesControllerService" : false,
+                "name" : "Path Not Found Behavior",
+                "sensitive" : false
+              }
+            },
+            "runDurationMillis" : 0,
+            "scheduledState" : "ENABLED",
+            "schedulingPeriod" : "0 sec",
+            "schedulingStrategy" : "TIMER_DRIVEN",
+            "style" : { },
+            "type" : "org.apache.nifi.processors.standard.EvaluateJsonPath",
+            "yieldDuration" : "1 sec"
+          }, {
+            "autoTerminatedRelationships" : [ "No Retry", "Retry", "Original", "Failure" ],
             "bulletinLevel" : "WARN",
             "bundle" : {
               "artifact" : "nifi-standard-nar",
@@ -2884,11 +2977,11 @@
             "executionNode" : "ALL",
             "groupIdentifier" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
             "identifier" : "2c192b92-bf79-3121-84f7-735be8909aaa",
-            "name" : "Invoke GET /validations",
+            "name" : "Invoke POST /validations API",
             "penaltyDuration" : "30 sec",
             "position" : {
               "x" : -1624.0,
-              "y" : 32.0
+              "y" : 168.0
             },
             "properties" : {
               "use-etag" : "false",
@@ -2908,7 +3001,7 @@
               "Max Length To Put In Attribute" : "256",
               "ignore-response-content" : "false",
               "Digest Authentication" : "false",
-              "HTTP Method" : "GET",
+              "HTTP Method" : "POST",
               "Add Response Headers to Request" : "false",
               "Include Date Header" : "True",
               "Penalize on \"No Retry\"" : "false"
@@ -3192,71 +3285,6 @@
             "type" : "org.apache.nifi.processors.standard.JoltTransformJSON",
             "yieldDuration" : "1 sec"
           }, {
-            "autoTerminatedRelationships" : [ "failure" ],
-            "bulletinLevel" : "WARN",
-            "bundle" : {
-              "artifact" : "nifi-standard-nar",
-              "group" : "org.apache.nifi",
-              "version" : "1.12.1"
-            },
-            "comments" : "",
-            "componentType" : "PROCESSOR",
-            "concurrentlySchedulableTaskCount" : 1,
-            "executionNode" : "ALL",
-            "groupIdentifier" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
-            "identifier" : "db371b1f-2651-36e2-a74c-22cfae8573ca",
-            "name" : "AttributesToJSON",
-            "penaltyDuration" : "30 sec",
-            "position" : {
-              "x" : -800.0,
-              "y" : 824.0
-            },
-            "properties" : {
-              "Destination" : "flowfile-content",
-              "Null Value" : "false",
-              "Attributes List" : "productId,productName,geographicArea,productVersion,productType,description,classification,footprint,extentLowerLeft,extentUpperRight,SourceDateStart,SourceDateEnd,producerName,SRS,SRSOrigin,nominalResolution,accuracyLE90,horizontalAccuracyCE90,relativeAccuracyLE90,heightRangeFrom,heightRangeTo,sensor,productionMethod,productionSystem",
-              "Include Core Attributes" : "true"
-            },
-            "propertyDescriptors" : {
-              "attributes-to-json-regex" : {
-                "displayName" : "Attributes Regular Expression",
-                "identifiesControllerService" : false,
-                "name" : "attributes-to-json-regex",
-                "sensitive" : false
-              },
-              "Destination" : {
-                "displayName" : "Destination",
-                "identifiesControllerService" : false,
-                "name" : "Destination",
-                "sensitive" : false
-              },
-              "Null Value" : {
-                "displayName" : "Null Value",
-                "identifiesControllerService" : false,
-                "name" : "Null Value",
-                "sensitive" : false
-              },
-              "Attributes List" : {
-                "displayName" : "Attributes List",
-                "identifiesControllerService" : false,
-                "name" : "Attributes List",
-                "sensitive" : false
-              },
-              "Include Core Attributes" : {
-                "displayName" : "Include Core Attributes",
-                "identifiesControllerService" : false,
-                "name" : "Include Core Attributes",
-                "sensitive" : false
-              }
-            },
-            "runDurationMillis" : 0,
-            "scheduledState" : "ENABLED",
-            "schedulingPeriod" : "0 sec",
-            "schedulingStrategy" : "TIMER_DRIVEN",
-            "style" : { },
-            "type" : "org.apache.nifi.processors.standard.AttributesToJSON",
-            "yieldDuration" : "1 sec"
-          }, {
             "autoTerminatedRelationships" : [ "failure", "unmatched" ],
             "bulletinLevel" : "WARN",
             "bundle" : {
@@ -3354,7 +3382,7 @@
             "penaltyDuration" : "30 sec",
             "position" : {
               "x" : -1624.0,
-              "y" : 600.0
+              "y" : 696.0
             },
             "properties" : {
               "Store State" : "Do not store state",
@@ -3417,8 +3445,8 @@
             "name" : "Set Status -> Failed",
             "penaltyDuration" : "30 sec",
             "position" : {
-              "x" : -1272.0,
-              "y" : 384.0
+              "x" : -1248.0,
+              "y" : 600.0
             },
             "properties" : {
               "Store State" : "Do not store state",
@@ -3527,6 +3555,71 @@
             "schedulingStrategy" : "TIMER_DRIVEN",
             "style" : { },
             "type" : "org.apache.nifi.processors.attributes.UpdateAttribute",
+            "yieldDuration" : "1 sec"
+          }, {
+            "autoTerminatedRelationships" : [ "failure" ],
+            "bulletinLevel" : "WARN",
+            "bundle" : {
+              "artifact" : "nifi-standard-nar",
+              "group" : "org.apache.nifi",
+              "version" : "1.12.1"
+            },
+            "comments" : "",
+            "componentType" : "PROCESSOR",
+            "concurrentlySchedulableTaskCount" : 1,
+            "executionNode" : "ALL",
+            "groupIdentifier" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
+            "identifier" : "aa236e13-6aed-35cf-ac84-22e065c01025",
+            "name" : "Set POST /validations body",
+            "penaltyDuration" : "30 sec",
+            "position" : {
+              "x" : -1624.0,
+              "y" : 32.0
+            },
+            "properties" : {
+              "Destination" : "flowfile-content",
+              "Null Value" : "false",
+              "Attributes List" : "path",
+              "Include Core Attributes" : "true"
+            },
+            "propertyDescriptors" : {
+              "attributes-to-json-regex" : {
+                "displayName" : "Attributes Regular Expression",
+                "identifiesControllerService" : false,
+                "name" : "attributes-to-json-regex",
+                "sensitive" : false
+              },
+              "Destination" : {
+                "displayName" : "Destination",
+                "identifiesControllerService" : false,
+                "name" : "Destination",
+                "sensitive" : false
+              },
+              "Null Value" : {
+                "displayName" : "Null Value",
+                "identifiesControllerService" : false,
+                "name" : "Null Value",
+                "sensitive" : false
+              },
+              "Attributes List" : {
+                "displayName" : "Attributes List",
+                "identifiesControllerService" : false,
+                "name" : "Attributes List",
+                "sensitive" : false
+              },
+              "Include Core Attributes" : {
+                "displayName" : "Include Core Attributes",
+                "identifiesControllerService" : false,
+                "name" : "Include Core Attributes",
+                "sensitive" : false
+              }
+            },
+            "runDurationMillis" : 0,
+            "scheduledState" : "ENABLED",
+            "schedulingPeriod" : "0 sec",
+            "schedulingStrategy" : "TIMER_DRIVEN",
+            "style" : { },
+            "type" : "org.apache.nifi.processors.standard.AttributesToJSON",
             "yieldDuration" : "1 sec"
           } ],
           "remoteProcessGroups" : [ ],
