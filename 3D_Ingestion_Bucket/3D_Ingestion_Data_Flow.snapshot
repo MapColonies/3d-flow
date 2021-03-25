@@ -301,7 +301,7 @@
               "comments" : "",
               "groupId" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
               "id" : "92001654-c5a6-3072-a784-0f6d4a0dc355",
-              "name" : "Set Metadata Attribute",
+              "name" : "Set Metadata",
               "type" : "PROCESSOR"
             },
             "zIndex" : 0
@@ -488,7 +488,7 @@
               "comments" : "",
               "groupId" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
               "id" : "92001654-c5a6-3072-a784-0f6d4a0dc355",
-              "name" : "Set Metadata Attribute",
+              "name" : "Set Metadata",
               "type" : "PROCESSOR"
             },
             "flowFileExpiration" : "0 sec",
@@ -3640,7 +3640,7 @@
             "executionNode" : "ALL",
             "groupIdentifier" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
             "identifier" : "92001654-c5a6-3072-a784-0f6d4a0dc355",
-            "name" : "Set Metadata Attribute",
+            "name" : "Set Metadata",
             "penaltyDuration" : "30 sec",
             "position" : {
               "x" : -1784.0,

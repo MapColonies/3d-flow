@@ -1,6 +1,6 @@
 flows:
-  48b1a123-9cf2-454c-839e-27a8bf586b0e: {ver: 2, file: 3D_Ingestion_Data_Flow.snapshot,
-    comments: Fix metadata attribute, author: anonymous, created: 1616667614580, flowName: 3D
-      Ingestion Data Flow, flowDesc: ''}
+  48b1a123-9cf2-454c-839e-27a8bf586b0e: {ver: 3, file: 3D_Ingestion_Data_Flow.snapshot,
+    comments: Done, author: anonymous, created: 1616674598383, flowName: 3D Ingestion
+      Data Flow, flowDesc: ''}
 layoutVer: 1
 bucketId: ed5e9150-8184-4c20-a4d1-5e9f4010446f
