@@ -73,7 +73,7 @@
           "backPressureObjectThreshold" : 10000,
           "bends" : [ {
             "x" : 496.0,
-            "y" : 576.0
+            "y" : 592.0
           } ],
           "componentType" : "CONNECTION",
           "destination" : {
@@ -105,8 +105,8 @@
           "backPressureDataSizeThreshold" : "1 GB",
           "backPressureObjectThreshold" : 10000,
           "bends" : [ {
-            "x" : 736.0,
-            "y" : 576.0
+            "x" : 744.0,
+            "y" : 592.0
           } ],
           "componentType" : "CONNECTION",
           "destination" : {
@@ -190,8 +190,8 @@
           "identifier" : "780e5c77-feed-3110-8d05-f7ef13299d98",
           "name" : "output",
           "position" : {
-            "x" : 512.0,
-            "y" : 616.0
+            "x" : 504.0,
+            "y" : 632.0
           },
           "type" : "OUTPUT_PORT"
         } ],
@@ -204,6 +204,42 @@
           "comments" : "",
           "componentType" : "PROCESS_GROUP",
           "connections" : [ {
+            "backPressureDataSizeThreshold" : "1 GB",
+            "backPressureObjectThreshold" : 10000,
+            "bends" : [ {
+              "x" : -944.0,
+              "y" : 1152.0
+            }, {
+              "x" : -944.0,
+              "y" : 432.0
+            } ],
+            "componentType" : "CONNECTION",
+            "destination" : {
+              "comments" : "",
+              "groupId" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
+              "id" : "966c2496-4be0-3464-b758-8eeade5d2223",
+              "name" : "Set Status -> Failed",
+              "type" : "PROCESSOR"
+            },
+            "flowFileExpiration" : "0 sec",
+            "groupIdentifier" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
+            "identifier" : "7e18f70c-2686-3325-b55b-7532f1ea04a6",
+            "labelIndex" : 0,
+            "loadBalanceCompression" : "DO_NOT_COMPRESS",
+            "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+            "name" : "",
+            "partitioningAttribute" : "",
+            "prioritizers" : [ ],
+            "selectedRelationships" : [ "success" ],
+            "source" : {
+              "comments" : "",
+              "groupId" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
+              "id" : "9a6f6b8d-2421-325d-9708-faae3d874f40",
+              "name" : "Delete Files from S3 bucket",
+              "type" : "PROCESSOR"
+            },
+            "zIndex" : 0
+          }, {
             "backPressureDataSizeThreshold" : "1 GB",
             "backPressureObjectThreshold" : 10000,
             "bends" : [ {
@@ -240,11 +276,11 @@
             "backPressureDataSizeThreshold" : "1 GB",
             "backPressureObjectThreshold" : 10000,
             "bends" : [ {
-              "x" : -2107.2130126953125,
-              "y" : 1105.345558166504
+              "x" : -2136.0,
+              "y" : 1152.0
             }, {
-              "x" : -2107.2130126953125,
-              "y" : 601.3455581665039
+              "x" : -2136.0,
+              "y" : 600.0
             } ],
             "componentType" : "CONNECTION",
             "destination" : {
@@ -410,6 +446,35 @@
           }, {
             "backPressureDataSizeThreshold" : "1 GB",
             "backPressureObjectThreshold" : 10000,
+            "bends" : [ ],
+            "componentType" : "CONNECTION",
+            "destination" : {
+              "comments" : "",
+              "groupId" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
+              "id" : "9a6f6b8d-2421-325d-9708-faae3d874f40",
+              "name" : "Delete Files from S3 bucket",
+              "type" : "PROCESSOR"
+            },
+            "flowFileExpiration" : "0 sec",
+            "groupIdentifier" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
+            "identifier" : "82ccac64-f21d-38f7-92d0-38d9be69944b",
+            "labelIndex" : 0,
+            "loadBalanceCompression" : "DO_NOT_COMPRESS",
+            "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+            "name" : "",
+            "partitioningAttribute" : "",
+            "prioritizers" : [ ],
+            "selectedRelationships" : [ "" ],
+            "source" : {
+              "groupId" : "2331cbeb-527b-3fde-b861-056a19af37dd",
+              "id" : "fec85036-a285-349f-96b3-03f878de5514",
+              "name" : "failed",
+              "type" : "OUTPUT_PORT"
+            },
+            "zIndex" : 0
+          }, {
+            "backPressureDataSizeThreshold" : "1 GB",
+            "backPressureObjectThreshold" : 10000,
             "bends" : [ {
               "x" : -1075.2130126953125,
               "y" : 265.3455581665039
@@ -512,10 +577,7 @@
           }, {
             "backPressureDataSizeThreshold" : "1 GB",
             "backPressureObjectThreshold" : 10000,
-            "bends" : [ {
-              "x" : -1936.0,
-              "y" : 1040.0
-            } ],
+            "bends" : [ ],
             "componentType" : "CONNECTION",
             "destination" : {
               "comments" : "",
@@ -1328,6 +1390,35 @@
             }, {
               "backPressureDataSizeThreshold" : "1 GB",
               "backPressureObjectThreshold" : 10000,
+              "bends" : [ ],
+              "componentType" : "CONNECTION",
+              "destination" : {
+                "groupId" : "2331cbeb-527b-3fde-b861-056a19af37dd",
+                "id" : "fec85036-a285-349f-96b3-03f878de5514",
+                "name" : "failed",
+                "type" : "OUTPUT_PORT"
+              },
+              "flowFileExpiration" : "0 sec",
+              "groupIdentifier" : "2331cbeb-527b-3fde-b861-056a19af37dd",
+              "identifier" : "1869ae42-e6a7-3207-a819-55acba06601b",
+              "labelIndex" : 1,
+              "loadBalanceCompression" : "DO_NOT_COMPRESS",
+              "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+              "name" : "",
+              "partitioningAttribute" : "",
+              "prioritizers" : [ ],
+              "selectedRelationships" : [ "failed" ],
+              "source" : {
+                "comments" : "",
+                "groupId" : "2331cbeb-527b-3fde-b861-056a19af37dd",
+                "id" : "dfc387aa-b7ab-3ad1-85a4-e12200bfb18f",
+                "name" : "Is Success",
+                "type" : "PROCESSOR"
+              },
+              "zIndex" : 0
+            }, {
+              "backPressureDataSizeThreshold" : "1 GB",
+              "backPressureObjectThreshold" : 10000,
               "bends" : [ {
                 "x" : 376.0,
                 "y" : 392.0
@@ -1479,6 +1570,18 @@
             "name" : "Store Metadata in the Catalog DB",
             "outputPorts" : [ {
               "allowRemoteAccess" : false,
+              "componentType" : "OUTPUT_PORT",
+              "concurrentlySchedulableTaskCount" : 1,
+              "groupIdentifier" : "2331cbeb-527b-3fde-b861-056a19af37dd",
+              "identifier" : "fec85036-a285-349f-96b3-03f878de5514",
+              "name" : "failed",
+              "position" : {
+                "x" : 776.0,
+                "y" : 728.0
+              },
+              "type" : "OUTPUT_PORT"
+            }, {
+              "allowRemoteAccess" : false,
               "comments" : "",
               "componentType" : "OUTPUT_PORT",
               "concurrentlySchedulableTaskCount" : 1,
@@ -1486,7 +1589,7 @@
               "identifier" : "a4abbd0c-d959-34ed-8bde-4ab063894083",
               "name" : "success",
               "position" : {
-                "x" : 560.0,
+                "x" : 344.0,
                 "y" : 728.0
               },
               "type" : "OUTPUT_PORT"
@@ -1900,7 +2003,8 @@
               },
               "properties" : {
                 "Routing Strategy" : "Route to Property name",
-                "success" : "${invokehttp.status.code:equals('201')}"
+                "success" : "${invokehttp.status.code:equals('201')}",
+                "failed" : "${invokehttp.status.code:equals('201'):not()}"
               },
               "propertyDescriptors" : {
                 "Routing Strategy" : {
@@ -1913,6 +2017,12 @@
                   "displayName" : "success",
                   "identifiesControllerService" : false,
                   "name" : "success",
+                  "sensitive" : false
+                },
+                "failed" : {
+                  "displayName" : "failed",
+                  "identifiesControllerService" : false,
+                  "name" : "failed",
                   "sensitive" : false
                 }
               },
@@ -2507,14 +2617,14 @@
                   "group" : "org.apache.nifi",
                   "version" : "1.12.1"
                 },
-                "type" : "org.apache.nifi.distributed.cache.client.DistributedMapCacheClient"
+                "type" : "org.apache.nifi.distributed.cache.client.AtomicDistributedMapCacheClient"
               }, {
                 "bundle" : {
                   "artifact" : "nifi-standard-services-api-nar",
                   "group" : "org.apache.nifi",
                   "version" : "1.12.1"
                 },
-                "type" : "org.apache.nifi.distributed.cache.client.AtomicDistributedMapCacheClient"
+                "type" : "org.apache.nifi.distributed.cache.client.DistributedMapCacheClient"
               } ],
               "groupIdentifier" : "83adb01f-c440-3f2c-8a09-6b8d670e208a",
               "identifier" : "914ece37-ac7f-318a-acba-5554c8f19698",
@@ -3924,8 +4034,8 @@
             "name" : "Set Status -> Completed",
             "penaltyDuration" : "30 sec",
             "position" : {
-              "x" : -1776.0,
-              "y" : 1040.0
+              "x" : -1992.0,
+              "y" : 1088.0
             },
             "properties" : {
               "Store State" : "Do not store state",
@@ -3970,6 +4080,187 @@
             "schedulingStrategy" : "TIMER_DRIVEN",
             "style" : { },
             "type" : "org.apache.nifi.processors.attributes.UpdateAttribute",
+            "yieldDuration" : "1 sec"
+          }, {
+            "autoTerminatedRelationships" : [ "failure" ],
+            "bulletinLevel" : "WARN",
+            "bundle" : {
+              "artifact" : "nifi-aws-nar",
+              "group" : "org.apache.nifi",
+              "version" : "1.12.1"
+            },
+            "comments" : "",
+            "componentType" : "PROCESSOR",
+            "concurrentlySchedulableTaskCount" : 1,
+            "executionNode" : "ALL",
+            "groupIdentifier" : "011e87ca-02dd-31e0-8e90-f6a6c57ff368",
+            "identifier" : "9a6f6b8d-2421-325d-9708-faae3d874f40",
+            "name" : "Delete Files from S3 bucket",
+            "penaltyDuration" : "30 sec",
+            "position" : {
+              "x" : -1560.0,
+              "y" : 1088.0
+            },
+            "properties" : {
+              "FullControl User List" : "${s3.permissions.full.users}",
+              "Owner" : "${s3.owner}",
+              "Endpoint Override URL" : "http://10.45.129.235:9000",
+              "Object Key" : "${filename}",
+              "Signer Override" : "Default Signature",
+              "Bucket" : "#{bucket}/${jobId}",
+              "Write Permission User List" : "${s3.permissions.write.users}",
+              "Communications Timeout" : "30 secs",
+              "Region" : "us-west-2",
+              "Read Permission User List" : "${s3.permissions.read.users}",
+              "Write ACL User List" : "${s3.permissions.writeacl.users}",
+              "Read ACL User List" : "${s3.permissions.readacl.users}"
+            },
+            "propertyDescriptors" : {
+              "Proxy Host" : {
+                "displayName" : "Proxy Host",
+                "identifiesControllerService" : false,
+                "name" : "Proxy Host",
+                "sensitive" : false
+              },
+              "FullControl User List" : {
+                "displayName" : "FullControl User List",
+                "identifiesControllerService" : false,
+                "name" : "FullControl User List",
+                "sensitive" : false
+              },
+              "Owner" : {
+                "displayName" : "Owner",
+                "identifiesControllerService" : false,
+                "name" : "Owner",
+                "sensitive" : false
+              },
+              "Access Key" : {
+                "displayName" : "Access Key ID",
+                "identifiesControllerService" : false,
+                "name" : "Access Key",
+                "sensitive" : true
+              },
+              "proxy-configuration-service" : {
+                "displayName" : "Proxy Configuration Service",
+                "identifiesControllerService" : true,
+                "name" : "proxy-configuration-service",
+                "sensitive" : false
+              },
+              "Endpoint Override URL" : {
+                "displayName" : "Endpoint Override URL",
+                "identifiesControllerService" : false,
+                "name" : "Endpoint Override URL",
+                "sensitive" : false
+              },
+              "Object Key" : {
+                "displayName" : "Object Key",
+                "identifiesControllerService" : false,
+                "name" : "Object Key",
+                "sensitive" : false
+              },
+              "AWS Credentials Provider service" : {
+                "displayName" : "AWS Credentials Provider service",
+                "identifiesControllerService" : true,
+                "name" : "AWS Credentials Provider service",
+                "sensitive" : false
+              },
+              "SSL Context Service" : {
+                "displayName" : "SSL Context Service",
+                "identifiesControllerService" : true,
+                "name" : "SSL Context Service",
+                "sensitive" : false
+              },
+              "Signer Override" : {
+                "displayName" : "Signer Override",
+                "identifiesControllerService" : false,
+                "name" : "Signer Override",
+                "sensitive" : false
+              },
+              "Bucket" : {
+                "displayName" : "Bucket",
+                "identifiesControllerService" : false,
+                "name" : "Bucket",
+                "sensitive" : false
+              },
+              "Version" : {
+                "displayName" : "Version",
+                "identifiesControllerService" : false,
+                "name" : "Version",
+                "sensitive" : false
+              },
+              "Write Permission User List" : {
+                "displayName" : "Write Permission User List",
+                "identifiesControllerService" : false,
+                "name" : "Write Permission User List",
+                "sensitive" : false
+              },
+              "proxy-user-password" : {
+                "displayName" : "Proxy Password",
+                "identifiesControllerService" : false,
+                "name" : "proxy-user-password",
+                "sensitive" : true
+              },
+              "Communications Timeout" : {
+                "displayName" : "Communications Timeout",
+                "identifiesControllerService" : false,
+                "name" : "Communications Timeout",
+                "sensitive" : false
+              },
+              "Secret Key" : {
+                "displayName" : "Secret Access Key",
+                "identifiesControllerService" : false,
+                "name" : "Secret Key",
+                "sensitive" : true
+              },
+              "Credentials File" : {
+                "displayName" : "Credentials File",
+                "identifiesControllerService" : false,
+                "name" : "Credentials File",
+                "sensitive" : false
+              },
+              "Region" : {
+                "displayName" : "Region",
+                "identifiesControllerService" : false,
+                "name" : "Region",
+                "sensitive" : false
+              },
+              "Read Permission User List" : {
+                "displayName" : "Read Permission User List",
+                "identifiesControllerService" : false,
+                "name" : "Read Permission User List",
+                "sensitive" : false
+              },
+              "Write ACL User List" : {
+                "displayName" : "Write ACL User List",
+                "identifiesControllerService" : false,
+                "name" : "Write ACL User List",
+                "sensitive" : false
+              },
+              "proxy-user-name" : {
+                "displayName" : "Proxy Username",
+                "identifiesControllerService" : false,
+                "name" : "proxy-user-name",
+                "sensitive" : false
+              },
+              "Proxy Host Port" : {
+                "displayName" : "Proxy Host Port",
+                "identifiesControllerService" : false,
+                "name" : "Proxy Host Port",
+                "sensitive" : false
+              },
+              "Read ACL User List" : {
+                "displayName" : "Read ACL User List",
+                "identifiesControllerService" : false,
+                "name" : "Read ACL User List",
+                "sensitive" : false
+              }
+            },
+            "runDurationMillis" : 0,
+            "scheduledState" : "ENABLED",
+            "schedulingPeriod" : "0 sec",
+            "schedulingStrategy" : "TIMER_DRIVEN",
+            "style" : { },
+            "type" : "org.apache.nifi.processors.aws.s3.DeleteS3Object",
             "yieldDuration" : "1 sec"
           } ],
           "remoteProcessGroups" : [ ],
