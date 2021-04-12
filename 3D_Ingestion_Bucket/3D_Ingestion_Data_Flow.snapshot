@@ -466,6 +466,7 @@
             "prioritizers" : [ ],
             "selectedRelationships" : [ "" ],
             "source" : {
+              "comments" : "",
               "groupId" : "2331cbeb-527b-3fde-b861-056a19af37dd",
               "id" : "fec85036-a285-349f-96b3-03f878de5514",
               "name" : "failed",
@@ -1393,6 +1394,7 @@
               "bends" : [ ],
               "componentType" : "CONNECTION",
               "destination" : {
+                "comments" : "",
                 "groupId" : "2331cbeb-527b-3fde-b861-056a19af37dd",
                 "id" : "fec85036-a285-349f-96b3-03f878de5514",
                 "name" : "failed",
@@ -1570,6 +1572,7 @@
             "name" : "Store Metadata in the Catalog DB",
             "outputPorts" : [ {
               "allowRemoteAccess" : false,
+              "comments" : "",
               "componentType" : "OUTPUT_PORT",
               "concurrentlySchedulableTaskCount" : 1,
               "groupIdentifier" : "2331cbeb-527b-3fde-b861-056a19af37dd",
@@ -2617,14 +2620,14 @@
                   "group" : "org.apache.nifi",
                   "version" : "1.12.1"
                 },
-                "type" : "org.apache.nifi.distributed.cache.client.AtomicDistributedMapCacheClient"
+                "type" : "org.apache.nifi.distributed.cache.client.DistributedMapCacheClient"
               }, {
                 "bundle" : {
                   "artifact" : "nifi-standard-services-api-nar",
                   "group" : "org.apache.nifi",
                   "version" : "1.12.1"
                 },
-                "type" : "org.apache.nifi.distributed.cache.client.DistributedMapCacheClient"
+                "type" : "org.apache.nifi.distributed.cache.client.AtomicDistributedMapCacheClient"
               } ],
               "groupIdentifier" : "83adb01f-c440-3f2c-8a09-6b8d670e208a",
               "identifier" : "914ece37-ac7f-318a-acba-5554c8f19698",
@@ -4105,9 +4108,9 @@
               "FullControl User List" : "${s3.permissions.full.users}",
               "Owner" : "${s3.owner}",
               "Endpoint Override URL" : "http://10.45.129.235:9000",
-              "Object Key" : "${filename}",
+              "Object Key" : "${jobId}",
               "Signer Override" : "Default Signature",
-              "Bucket" : "#{bucket}/${jobId}",
+              "Bucket" : "#{bucket}",
               "Write Permission User List" : "${s3.permissions.write.users}",
               "Communications Timeout" : "30 secs",
               "Region" : "us-west-2",
