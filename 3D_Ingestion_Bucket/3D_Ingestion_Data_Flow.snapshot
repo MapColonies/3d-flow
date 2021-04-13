@@ -852,7 +852,7 @@
                 "comments" : "",
                 "groupId" : "c296f6e2-fc4f-3c6f-aa80-5e65aaccb644",
                 "id" : "3a14aa1d-3a10-3a3d-a50b-41df033c1dd1",
-                "name" : "Invoke PATCH /jobs with new status",
+                "name" : "Invoke PUT /jobs with new status",
                 "type" : "PROCESSOR"
               },
               "zIndex" : 0
@@ -868,7 +868,7 @@
                 "comments" : "",
                 "groupId" : "c296f6e2-fc4f-3c6f-aa80-5e65aaccb644",
                 "id" : "3a14aa1d-3a10-3a3d-a50b-41df033c1dd1",
-                "name" : "Invoke PATCH /jobs with new status",
+                "name" : "Invoke PUT /jobs with new status",
                 "type" : "PROCESSOR"
               },
               "flowFileExpiration" : "0 sec",
@@ -1006,7 +1006,7 @@
               "executionNode" : "ALL",
               "groupIdentifier" : "c296f6e2-fc4f-3c6f-aa80-5e65aaccb644",
               "identifier" : "3a14aa1d-3a10-3a3d-a50b-41df033c1dd1",
-              "name" : "Invoke PATCH /jobs with new status",
+              "name" : "Invoke PUT /jobs with new status",
               "penaltyDuration" : "30 sec",
               "position" : {
                 "x" : 512.0,
@@ -1030,7 +1030,7 @@
                 "Max Length To Put In Attribute" : "256",
                 "ignore-response-content" : "false",
                 "Digest Authentication" : "false",
-                "HTTP Method" : "PATCH",
+                "HTTP Method" : "PUT",
                 "Add Response Headers to Request" : "false",
                 "Include Date Header" : "True",
                 "Penalize on \"No Retry\"" : "false"
