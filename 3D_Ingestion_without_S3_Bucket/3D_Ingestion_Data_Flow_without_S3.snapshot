@@ -1703,6 +1703,42 @@
               "backPressureDataSizeThreshold" : "1 GB",
               "backPressureObjectThreshold" : 10000,
               "bends" : [ {
+                "x" : 1736.0,
+                "y" : 192.0
+              }, {
+                "x" : 1736.0,
+                "y" : 1104.0
+              } ],
+              "componentType" : "CONNECTION",
+              "destination" : {
+                "comments" : "",
+                "groupId" : "08bff457-2852-30f3-8f71-c5814466ad1d",
+                "id" : "a34aa6af-44e9-3c86-84be-7757f44e9e4c",
+                "name" : "failed",
+                "type" : "OUTPUT_PORT"
+              },
+              "flowFileExpiration" : "0 sec",
+              "groupIdentifier" : "08bff457-2852-30f3-8f71-c5814466ad1d",
+              "identifier" : "ad4019e0-82b0-3d1a-b30c-25e922ce73d2",
+              "labelIndex" : 0,
+              "loadBalanceCompression" : "DO_NOT_COMPRESS",
+              "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+              "name" : "",
+              "partitioningAttribute" : "",
+              "prioritizers" : [ ],
+              "selectedRelationships" : [ "failure" ],
+              "source" : {
+                "comments" : "",
+                "groupId" : "08bff457-2852-30f3-8f71-c5814466ad1d",
+                "id" : "431fe2b8-2794-3c4b-a566-4ce9ab3ef252",
+                "name" : "List Files",
+                "type" : "PROCESSOR"
+              },
+              "zIndex" : 0
+            }, {
+              "backPressureDataSizeThreshold" : "1 GB",
+              "backPressureObjectThreshold" : 10000,
+              "bends" : [ {
                 "x" : 328.0,
                 "y" : 400.0
               } ],
@@ -2519,7 +2555,7 @@
               "type" : "org.apache.nifi.processors.standard.Wait",
               "yieldDuration" : "1 sec"
             }, {
-              "autoTerminatedRelationships" : [ "failure" ],
+              "autoTerminatedRelationships" : [ ],
               "bulletinLevel" : "WARN",
               "bundle" : {
                 "artifact" : "nifi-scripting-nar",
@@ -2540,7 +2576,7 @@
               },
               "properties" : {
                 "Script Engine" : "Groovy",
-                "Script Body" : "import java.nio.charset.StandardCharsets\nimport groovy.io.FileType\n\ndef flowFile = session.get()\nif(!flowFile) return\ndef flowFiles = [] as List<FlowFile>\ndef fetchDirectory = flowFile.getAttribute('modelPath')\ndef listOfFiles = []\ndef dir = new File(fetchDirectory)\nif(dir.exists()) {\n   dir.eachFileRecurse (FileType.FILES) { file ->\n      listOfFiles << file\n   }\n}\ndef numOfFiles = listOfFiles.size.toString()\nlistOfFiles.each { i ->\n   def newFlowFile = session.create()\n   session.putAttribute(newFlowFile, 'absolute.path', i.path.substring(0, i.path.lastIndexOf(File.separator)))\n   session.putAttribute(newFlowFile, 'relative.path', i.path.minus(fetchDirectory).minus('/' + i.getName()))\n   session.putAttribute(newFlowFile, 'filename', i.getName())\n   session.putAttribute(newFlowFile, 'numOfFiles', numOfFiles)\n   session.putAttribute(newFlowFile, 'status', flowFile.getAttribute('status'))\n   session.putAttribute(newFlowFile, 'prevStatus', flowFile.getAttribute('prevStatus'))\n   session.putAttribute(newFlowFile, 'flowId', flowFile.getAttribute('flowId'))\n   session.putAttribute(newFlowFile, 'jobId', flowFile.getAttribute('jobId'))\n   session.putAttribute(newFlowFile, 'modelPath', flowFile.getAttribute('modelPath'))\n   session.putAttribute(newFlowFile, 'metadata', flowFile.getAttribute('metadata'))\n   flowFiles << newFlowFile\n}\nsession.remove(flowFile)\nsession.transfer(flowFiles, REL_SUCCESS)"
+                "Script Body" : "import java.nio.charset.StandardCharsets\nimport groovy.io.FileType\n\ndef flowFile = session.get()\nif(!flowFile) return\ndef fetchDirectory = flowFile.getAttribute('modelPath')\ndef listOfFiles = []\ndef dir = new File(fetchDirectory)\nif(dir.exists()) {\n   dir.eachFileRecurse (FileType.FILES) { file ->\n      listOfFiles << file\n   }\n}\nelse {\n  session.putAttribute(flowFile, 'message', 'Invalid model path')\n  session.transfer(flowFile, REL_FAILURE)\n  return\n}\ndef numOfFiles = listOfFiles.size.toString()\ndef flowFiles = [] as List<FlowFile>\nlistOfFiles.each { i ->\n   def newFlowFile = session.create()\n   session.putAttribute(newFlowFile, 'absolute.path', i.path.substring(0, i.path.lastIndexOf(File.separator)))\n   session.putAttribute(newFlowFile, 'relative.path', i.path.minus(fetchDirectory).minus('/' + i.getName()))\n   session.putAttribute(newFlowFile, 'filename', i.getName())\n   session.putAttribute(newFlowFile, 'numOfFiles', numOfFiles)\n   session.putAttribute(newFlowFile, 'status', flowFile.getAttribute('status'))\n   session.putAttribute(newFlowFile, 'prevStatus', flowFile.getAttribute('prevStatus'))\n   session.putAttribute(newFlowFile, 'flowId', flowFile.getAttribute('flowId'))\n   session.putAttribute(newFlowFile, 'jobId', flowFile.getAttribute('jobId'))\n   session.putAttribute(newFlowFile, 'modelPath', flowFile.getAttribute('modelPath'))\n   session.putAttribute(newFlowFile, 'metadata', flowFile.getAttribute('metadata'))\n   flowFiles << newFlowFile\n}\nsession.remove(flowFile)\nsession.transfer(flowFiles, REL_SUCCESS)"
               },
               "propertyDescriptors" : {
                 "Script File" : {
@@ -2747,7 +2783,7 @@
                 "comments" : "",
                 "groupId" : "aa6e8d61-790c-3413-9acd-9176f340e58b",
                 "id" : "a20c7f8e-cb24-3dc4-bf2b-6a95199d8352",
-                "name" : "Set PATCH /jobs body",
+                "name" : "Set PUT /jobs body",
                 "type" : "PROCESSOR"
               },
               "zIndex" : 0
@@ -2760,7 +2796,7 @@
                 "comments" : "",
                 "groupId" : "aa6e8d61-790c-3413-9acd-9176f340e58b",
                 "id" : "a20c7f8e-cb24-3dc4-bf2b-6a95199d8352",
-                "name" : "Set PATCH /jobs body",
+                "name" : "Set PUT /jobs body",
                 "type" : "PROCESSOR"
               },
               "flowFileExpiration" : "0 sec",
@@ -2946,7 +2982,7 @@
               "executionNode" : "ALL",
               "groupIdentifier" : "aa6e8d61-790c-3413-9acd-9176f340e58b",
               "identifier" : "a20c7f8e-cb24-3dc4-bf2b-6a95199d8352",
-              "name" : "Set PATCH /jobs body",
+              "name" : "Set PUT /jobs body",
               "penaltyDuration" : "30 sec",
               "position" : {
                 "x" : 512.0,
@@ -2955,7 +2991,7 @@
               "properties" : {
                 "Destination" : "flowfile-content",
                 "Null Value" : "false",
-                "Attributes List" : "status",
+                "Attributes List" : "status,reason",
                 "Include Core Attributes" : "true"
               },
               "propertyDescriptors" : {
@@ -3727,11 +3763,18 @@
               "y" : 368.0
             },
             "properties" : {
+              "reason" : "${message}",
               "Store State" : "Do not store state",
               "canonical-value-lookup-cache-size" : "100",
               "status" : "Failed"
             },
             "propertyDescriptors" : {
+              "reason" : {
+                "displayName" : "reason",
+                "identifiesControllerService" : false,
+                "name" : "reason",
+                "sensitive" : false
+              },
               "Delete Attributes Expression" : {
                 "displayName" : "Delete Attributes Expression",
                 "identifiesControllerService" : false,

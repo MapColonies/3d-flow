@@ -1,6 +1,7 @@
 flows:
-  5621568c-7f9a-40fe-82dc-1b7110a9138e: {ver: 2, file: 3D_Ingestion_Data_Flow_without_S3.snapshot,
-    comments: Using NFS, author: anonymous, created: 1618747210152, flowName: 3D Ingestion
-      Data Flow without S3, flowDesc: 3D Ingestion Data Flow without S3}
+  5621568c-7f9a-40fe-82dc-1b7110a9138e: {ver: 3, file: 3D_Ingestion_Data_Flow_without_S3.snapshot,
+    comments: Set job status to 'Failed' and failure reason when model path does not
+      exist, author: anonymous, created: 1619002775864, flowName: 3D Ingestion Data
+      Flow without S3, flowDesc: 3D Ingestion Data Flow without S3}
 layoutVer: 1
 bucketId: b76ca8f9-c53e-41d1-998a-8086f691208e
