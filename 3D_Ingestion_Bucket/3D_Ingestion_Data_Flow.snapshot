@@ -885,7 +885,7 @@
                 "comments" : "",
                 "groupId" : "c296f6e2-fc4f-3c6f-aa80-5e65aaccb644",
                 "id" : "00dc44f9-f4ca-3c46-a78c-c46acc17b527",
-                "name" : "Set PATCH /jobs body",
+                "name" : "Set PUT /jobs body",
                 "type" : "PROCESSOR"
               },
               "zIndex" : 0
@@ -928,7 +928,7 @@
                 "comments" : "",
                 "groupId" : "c296f6e2-fc4f-3c6f-aa80-5e65aaccb644",
                 "id" : "00dc44f9-f4ca-3c46-a78c-c46acc17b527",
-                "name" : "Set PATCH /jobs body",
+                "name" : "Set PUT /jobs body",
                 "type" : "PROCESSOR"
               },
               "flowFileExpiration" : "0 sec",
@@ -1301,7 +1301,7 @@
               "executionNode" : "ALL",
               "groupIdentifier" : "c296f6e2-fc4f-3c6f-aa80-5e65aaccb644",
               "identifier" : "00dc44f9-f4ca-3c46-a78c-c46acc17b527",
-              "name" : "Set PATCH /jobs body",
+              "name" : "Set PUT /jobs body",
               "penaltyDuration" : "30 sec",
               "position" : {
                 "x" : 512.0,
@@ -1310,7 +1310,7 @@
               "properties" : {
                 "Destination" : "flowfile-content",
                 "Null Value" : "false",
-                "Attributes List" : "status",
+                "Attributes List" : "status,reason",
                 "Include Core Attributes" : "true"
               },
               "propertyDescriptors" : {
@@ -2555,6 +2555,42 @@
                 "type" : "PROCESSOR"
               },
               "zIndex" : 0
+            }, {
+              "backPressureDataSizeThreshold" : "1 GB",
+              "backPressureObjectThreshold" : 10000,
+              "bends" : [ {
+                "x" : 1744.0,
+                "y" : 192.0
+              }, {
+                "x" : 1744.0,
+                "y" : 1104.0
+              } ],
+              "componentType" : "CONNECTION",
+              "destination" : {
+                "comments" : "",
+                "groupId" : "83adb01f-c440-3f2c-8a09-6b8d670e208a",
+                "id" : "b3fa9dd7-fdf1-3cde-9427-1680d210a892",
+                "name" : "failed",
+                "type" : "OUTPUT_PORT"
+              },
+              "flowFileExpiration" : "0 sec",
+              "groupIdentifier" : "83adb01f-c440-3f2c-8a09-6b8d670e208a",
+              "identifier" : "bdfea6a6-fe65-34e9-802f-021dcf81f0f8",
+              "labelIndex" : 0,
+              "loadBalanceCompression" : "DO_NOT_COMPRESS",
+              "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+              "name" : "",
+              "partitioningAttribute" : "",
+              "prioritizers" : [ ],
+              "selectedRelationships" : [ "failure" ],
+              "source" : {
+                "comments" : "",
+                "groupId" : "83adb01f-c440-3f2c-8a09-6b8d670e208a",
+                "id" : "d6807cad-6976-3156-af18-7f2a8587b2eb",
+                "name" : "List Files",
+                "type" : "PROCESSOR"
+              },
+              "zIndex" : 0
             } ],
             "controllerServices" : [ {
               "bundle" : {
@@ -2620,14 +2656,14 @@
                   "group" : "org.apache.nifi",
                   "version" : "1.12.1"
                 },
-                "type" : "org.apache.nifi.distributed.cache.client.DistributedMapCacheClient"
+                "type" : "org.apache.nifi.distributed.cache.client.AtomicDistributedMapCacheClient"
               }, {
                 "bundle" : {
                   "artifact" : "nifi-standard-services-api-nar",
                   "group" : "org.apache.nifi",
                   "version" : "1.12.1"
                 },
-                "type" : "org.apache.nifi.distributed.cache.client.AtomicDistributedMapCacheClient"
+                "type" : "org.apache.nifi.distributed.cache.client.DistributedMapCacheClient"
               } ],
               "groupIdentifier" : "83adb01f-c440-3f2c-8a09-6b8d670e208a",
               "identifier" : "914ece37-ac7f-318a-acba-5554c8f19698",
@@ -3174,7 +3210,7 @@
               "type" : "org.apache.nifi.processors.standard.DetectDuplicate",
               "yieldDuration" : "1 sec"
             }, {
-              "autoTerminatedRelationships" : [ "failure" ],
+              "autoTerminatedRelationships" : [ ],
               "bulletinLevel" : "WARN",
               "bundle" : {
                 "artifact" : "nifi-scripting-nar",
@@ -3195,7 +3231,7 @@
               },
               "properties" : {
                 "Script Engine" : "Groovy",
-                "Script Body" : "import java.nio.charset.StandardCharsets\nimport groovy.io.FileType\n\ndef flowFile = session.get()\nif(!flowFile) return\ndef flowFiles = [] as List<FlowFile>\ndef fetchDirectory = flowFile.getAttribute('modelPath')\ndef listOfFiles = []\ndef dir = new File(fetchDirectory)\nif(dir.exists()) {\n   dir.eachFileRecurse (FileType.FILES) { file ->\n      listOfFiles << file\n   }\n}\ndef numOfFiles = listOfFiles.size.toString()\nlistOfFiles.each { i ->\n   def newFlowFile = session.create()\n   session.putAttribute(newFlowFile, 'absolute.path', i.path.substring(0, i.path.lastIndexOf(File.separator)))\n   session.putAttribute(newFlowFile, 'relative.path', i.path.minus(fetchDirectory).minus('/' + i.getName()))\n   session.putAttribute(newFlowFile, 'filename', i.getName())\n   session.putAttribute(newFlowFile, 'numOfFiles', numOfFiles)\n   session.putAttribute(newFlowFile, 'status', flowFile.getAttribute('status'))\n   session.putAttribute(newFlowFile, 'prevStatus', flowFile.getAttribute('prevStatus'))\n   session.putAttribute(newFlowFile, 'flowId', flowFile.getAttribute('flowId'))\n   session.putAttribute(newFlowFile, 'jobId', flowFile.getAttribute('jobId'))\n   session.putAttribute(newFlowFile, 'modelPath', flowFile.getAttribute('modelPath'))\n   session.putAttribute(newFlowFile, 'metadata', flowFile.getAttribute('metadata'))\n   flowFiles << newFlowFile\n}\nsession.remove(flowFile)\nsession.transfer(flowFiles, REL_SUCCESS)"
+                "Script Body" : "import java.nio.charset.StandardCharsets\nimport groovy.io.FileType\n\ndef flowFile = session.get()\nif(!flowFile) return\ndef fetchDirectory = flowFile.getAttribute('modelPath')\ndef listOfFiles = []\ndef dir = new File(fetchDirectory)\nif(dir.exists()) {\n   dir.eachFileRecurse (FileType.FILES) { file ->\n      listOfFiles << file\n   }\n}\nelse {\n  session.putAttribute(flowFile, 'message', 'Invalid model path')\n  session.transfer(flowFile, REL_FAILURE)\n  return\n}\ndef numOfFiles = listOfFiles.size.toString()\ndef flowFiles = [] as List<FlowFile>\nlistOfFiles.each { i ->\n   def newFlowFile = session.create()\n   session.putAttribute(newFlowFile, 'absolute.path', i.path.substring(0, i.path.lastIndexOf(File.separator)))\n   session.putAttribute(newFlowFile, 'relative.path', i.path.minus(fetchDirectory).minus('/' + i.getName()))\n   session.putAttribute(newFlowFile, 'filename', i.getName())\n   session.putAttribute(newFlowFile, 'numOfFiles', numOfFiles)\n   session.putAttribute(newFlowFile, 'status', flowFile.getAttribute('status'))\n   session.putAttribute(newFlowFile, 'prevStatus', flowFile.getAttribute('prevStatus'))\n   session.putAttribute(newFlowFile, 'flowId', flowFile.getAttribute('flowId'))\n   session.putAttribute(newFlowFile, 'jobId', flowFile.getAttribute('jobId'))\n   session.putAttribute(newFlowFile, 'modelPath', flowFile.getAttribute('modelPath'))\n   session.putAttribute(newFlowFile, 'metadata', flowFile.getAttribute('metadata'))\n   flowFiles << newFlowFile\n}\nsession.remove(flowFile)\nsession.transfer(flowFiles, REL_SUCCESS)"
               },
               "propertyDescriptors" : {
                 "Script File" : {
@@ -3977,11 +4013,18 @@
               "y" : 368.0
             },
             "properties" : {
+              "reason" : "${message}",
               "Store State" : "Do not store state",
               "canonical-value-lookup-cache-size" : "100",
               "status" : "Failed"
             },
             "propertyDescriptors" : {
+              "reason" : {
+                "displayName" : "reason",
+                "identifiesControllerService" : false,
+                "name" : "reason",
+                "sensitive" : false
+              },
               "Delete Attributes Expression" : {
                 "displayName" : "Delete Attributes Expression",
                 "identifiesControllerService" : false,
@@ -4482,7 +4525,7 @@
             "description" : "",
             "name" : "bucket",
             "sensitive" : false,
-            "value" : "3dtiles"
+            "value" : "/tmp/3dtiles"
           }, {
             "description" : "",
             "name" : "port",
