@@ -1730,7 +1730,7 @@
                 "y" : 400.0
               },
               "properties" : {
-                "jolt-spec" : "[{\n  \"operation\": \"modify-overwrite-beta\",\n  \"spec\": {\n    \"links\": {\n      \"[0]\": {\n        \"protocol\": \"3DTiles\",\n        \"url\": \"#{proxyHost}/#{bucket}/${jobId}/${tilesetFilename}\"\n      }\n    }\n  }\n}]",
+                "jolt-spec" : "[{\n  \"operation\": \"modify-overwrite-beta\",\n  \"spec\": {\n    \"links\": {\n      \"[0]\": {\n        \"protocol\": \"3DTiles\",\n        \"url\": \"#{proxyUrl}/#{bucket}/${jobId}/${tilesetFilename}\"\n      }\n    }\n  }\n}]",
                 "jolt-transform" : "jolt-transform-chain",
                 "pretty_print" : "false",
                 "Transform Cache Size" : "1"
@@ -3004,13 +3004,13 @@
               "properties" : {
                 "FullControl User List" : "${s3.permissions.full.users}",
                 "Owner" : "${s3.owner}",
-                "Access Key" : "#{S3Username}",
+                "Access Key" : "#{S3AccessId}",
                 "s3-object-remove-tags-prefix" : "false",
                 "Endpoint Override URL" : "#{S3Url}",
                 "Multipart Upload Max Age Threshold" : "7 days",
                 "canned-acl" : "${s3.permissions.cannedacl}",
                 "Signer Override" : "Default Signature",
-                "Secret Key" : "#{S3AccessKey}",
+                "Secret Key" : "#{S3SecretKey}",
                 "Write ACL User List" : "${s3.permissions.writeacl.users}",
                 "server-side-encryption" : "None",
                 "Read ACL User List" : "${s3.permissions.readacl.users}",
@@ -3358,7 +3358,7 @@
               },
               "properties" : {
                 "Script Engine" : "Groovy",
-                "Script Body" : "import java.nio.charset.StandardCharsets\nimport groovy.io.FileType\n\ndef flowFile = session.get()\nif(!flowFile) return\ndef fetchDirectory = flowFile.getAttribute('modelPath')\ndef listOfFiles = []\ndef dir = new File(fetchDirectory)\nif(dir.exists()) {\n   dir.eachFileRecurse (FileType.FILES) { file ->\n      listOfFiles << file\n   }\n}\nelse {\n  session.putAttribute(flowFile, 'message', 'Invalid model path')\n  session.transfer(flowFile, REL_FAILURE)\n  return\n}\ndef numOfFiles = listOfFiles.size.toString()\ndef flowFiles = [] as List<FlowFile>\nlistOfFiles.each { i ->\n   def newFlowFile = session.create()\n   session.putAttribute(newFlowFile, 'absolute.path', i.path.substring(0, i.path.lastIndexOf(File.separator)))\n   session.putAttribute(newFlowFile, 'relative.path', i.path.minus(fetchDirectory).minus('/' + i.getName()))\n   session.putAttribute(newFlowFile, 'filename', i.getName())\n   session.putAttribute(newFlowFile, 'numOfFiles', numOfFiles)\n   session.putAttribute(newFlowFile, 'status', flowFile.getAttribute('status'))\n   session.putAttribute(newFlowFile, 'prevStatus', flowFile.getAttribute('prevStatus'))\n   session.putAttribute(newFlowFile, 'flowId', flowFile.getAttribute('flowId'))\n   session.putAttribute(newFlowFile, 'jobId', flowFile.getAttribute('jobId'))\n   session.putAttribute(newFlowFile, 'modelPath', flowFile.getAttribute('modelPath'))\n   session.putAttribute(newFlowFile, 'metadata', flowFile.getAttribute('metadata'))\n   flowFiles << newFlowFile\n}\nsession.remove(flowFile)\nsession.transfer(flowFiles, REL_SUCCESS)"
+                "Script Body" : "import java.nio.charset.StandardCharsets\nimport groovy.io.FileType\n\ndef flowFile = session.get()\nif(!flowFile) return\ndef fetchDirectory = flowFile.getAttribute('modelPath')\ndef listOfFiles = []\ndef dir = new File(fetchDirectory)\nif(dir.exists()) {\n   dir.eachFileRecurse (FileType.FILES) { file ->\n      listOfFiles << file\n   }\n}\nelse {\n  session.putAttribute(flowFile, 'message', 'Invalid model path')\n  session.transfer(flowFile, REL_FAILURE)\n  return\n}\ndef numOfFiles = listOfFiles.size.toString()\ndef flowFiles = [] as List<FlowFile>\nlistOfFiles.each { i ->\n   def newFlowFile = session.create()\n   session.putAttribute(newFlowFile, 'absolute.path', i.path.substring(0, i.path.lastIndexOf(File.separator)))\n   session.putAttribute(newFlowFile, 'relative.path', i.path.minus(fetchDirectory).minus('/' + i.getName()))\n   session.putAttribute(newFlowFile, 'filename', i.getName())\n   session.putAttribute(newFlowFile, 'numOfFiles', numOfFiles)\n   session.putAttribute(newFlowFile, 'status', flowFile.getAttribute('status'))\n   session.putAttribute(newFlowFile, 'prevStatus', flowFile.getAttribute('prevStatus'))\n   session.putAttribute(newFlowFile, 'flowId', flowFile.getAttribute('flowId'))\n   session.putAttribute(newFlowFile, 'jobId', flowFile.getAttribute('jobId'))\n   session.putAttribute(newFlowFile, 'modelPath', flowFile.getAttribute('modelPath'))\n   session.putAttribute(newFlowFile, 'tilesetFilename', flowFile.getAttribute('tilesetFilename'))\n   session.putAttribute(newFlowFile, 'metadata', flowFile.getAttribute('metadata'))\n   flowFiles << newFlowFile\n}\nsession.remove(flowFile)\nsession.transfer(flowFiles, REL_SUCCESS)"
               },
               "propertyDescriptors" : {
                 "Script File" : {
@@ -4647,10 +4647,6 @@
           "name" : "3dFlowParams",
           "parameters" : [ {
             "description" : "",
-            "name" : "S3Username",
-            "sensitive" : true
-          }, {
-            "description" : "",
             "name" : "modelsUrl",
             "sensitive" : false,
             "value" : "http://localhost:8082/models"
@@ -4661,7 +4657,7 @@
             "value" : "http://localhost:8081/jobs"
           }, {
             "description" : "",
-            "name" : "S3AccessKey",
+            "name" : "S3AccessId",
             "sensitive" : true
           }, {
             "description" : "",
@@ -4682,17 +4678,21 @@
             "description" : "",
             "name" : "S3Url",
             "sensitive" : false,
-            "value" : "http://10.45.129.235:9000"
+            "value" : "http://10.8.1.13:9000"
+          }, {
+            "description" : "",
+            "name" : "proxyUrl",
+            "sensitive" : false,
+            "value" : "http://localhost:8080"
+          }, {
+            "description" : "",
+            "name" : "S3SecretKey",
+            "sensitive" : true
           }, {
             "description" : "",
             "name" : "helpersUrl",
             "sensitive" : false,
             "value" : "http://localhost:8084/validations"
-          }, {
-            "description" : "",
-            "name" : "proxyHost",
-            "sensitive" : false,
-            "value" : "http://localhost:8080"
           }, {
             "description" : "",
             "name" : "script",
