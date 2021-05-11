@@ -1525,8 +1525,8 @@
               "backPressureDataSizeThreshold" : "1 GB",
               "backPressureObjectThreshold" : 10000,
               "bends" : [ {
-                "x" : 366.0,
-                "y" : 677.0
+                "x" : 376.0,
+                "y" : 664.0
               } ],
               "componentType" : "CONNECTION",
               "destination" : {
@@ -1558,8 +1558,8 @@
               "backPressureDataSizeThreshold" : "1 GB",
               "backPressureObjectThreshold" : 10000,
               "bends" : [ {
-                "x" : 369.0,
-                "y" : 520.0
+                "x" : 376.0,
+                "y" : 528.0
               } ],
               "componentType" : "CONNECTION",
               "destination" : {
@@ -1619,8 +1619,8 @@
               "identifier" : "fec85036-a285-349f-96b3-03f878de5514",
               "name" : "failed",
               "position" : {
-                "x" : 760.0,
-                "y" : 888.0
+                "x" : 776.0,
+                "y" : 864.0
               },
               "type" : "OUTPUT_PORT"
             }, {
@@ -1633,7 +1633,7 @@
               "name" : "success",
               "position" : {
                 "x" : 344.0,
-                "y" : 880.0
+                "y" : 864.0
               },
               "type" : "OUTPUT_PORT"
             } ],
@@ -1727,7 +1727,7 @@
               "penaltyDuration" : "30 sec",
               "position" : {
                 "x" : 504.0,
-                "y" : 400.0
+                "y" : 392.0
               },
               "properties" : {
                 "jolt-spec" : "[{\n  \"operation\": \"modify-overwrite-beta\",\n  \"spec\": {\n    \"links\": {\n      \"[0]\": {\n        \"protocol\": \"3DTiles\",\n        \"url\": \"#{proxyUrl}/#{bucket}/${jobId}/${tilesetFilename}\"\n      }\n    }\n  }\n}]",
@@ -1798,7 +1798,7 @@
               "penaltyDuration" : "30 sec",
               "position" : {
                 "x" : 504.0,
-                "y" : 544.0
+                "y" : 528.0
               },
               "properties" : {
                 "use-etag" : "false",
@@ -2120,7 +2120,7 @@
               "penaltyDuration" : "30 sec",
               "position" : {
                 "x" : 504.0,
-                "y" : 680.0
+                "y" : 664.0
               },
               "properties" : {
                 "Routing Strategy" : "Route to Property name",
