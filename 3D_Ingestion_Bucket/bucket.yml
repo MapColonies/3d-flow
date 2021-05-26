@@ -1,6 +1,7 @@
 flows:
-  48b1a123-9cf2-454c-839e-27a8bf586b0e: {ver: 13, file: 3D_Ingestion_Data_Flow.snapshot,
-    comments: Fix, author: anonymous, created: 1620743916371, flowName: 3D Ingestion
-      Data Flow, flowDesc: ''}
+  48b1a123-9cf2-454c-839e-27a8bf586b0e: {ver: 14, file: 3D_Ingestion_Data_Flow.snapshot,
+    comments: Set job status to 'Failed' and failure reason when model identifier
+      is not unique (already exist), author: anonymous, created: 1622045220011, flowName: 3D
+      Ingestion Data Flow, flowDesc: ''}
 layoutVer: 1
 bucketId: ed5e9150-8184-4c20-a4d1-5e9f4010446f
