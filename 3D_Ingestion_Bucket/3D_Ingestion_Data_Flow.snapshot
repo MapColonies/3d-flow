@@ -1368,42 +1368,6 @@
             "connections" : [ {
               "backPressureDataSizeThreshold" : "1 GB",
               "backPressureObjectThreshold" : 10000,
-              "bends" : [ {
-                "x" : 984.0,
-                "y" : 584.0
-              }, {
-                "x" : 984.0,
-                "y" : 184.0
-              } ],
-              "componentType" : "CONNECTION",
-              "destination" : {
-                "comments" : "",
-                "groupId" : "2331cbeb-527b-3fde-b861-056a19af37dd",
-                "id" : "87594893-d8b1-3af6-8b54-3962fcb84acb",
-                "name" : "Get Error Response",
-                "type" : "PROCESSOR"
-              },
-              "flowFileExpiration" : "0 sec",
-              "groupIdentifier" : "2331cbeb-527b-3fde-b861-056a19af37dd",
-              "identifier" : "cce17158-b8bc-3db7-aa2e-d5832c5ee053",
-              "labelIndex" : 0,
-              "loadBalanceCompression" : "DO_NOT_COMPRESS",
-              "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-              "name" : "",
-              "partitioningAttribute" : "",
-              "prioritizers" : [ ],
-              "selectedRelationships" : [ "No Retry" ],
-              "source" : {
-                "comments" : "",
-                "groupId" : "2331cbeb-527b-3fde-b861-056a19af37dd",
-                "id" : "1b150444-be58-3ffc-8e79-101c87462e25",
-                "name" : "Invoke POST /metadata",
-                "type" : "PROCESSOR"
-              },
-              "zIndex" : 0
-            }, {
-              "backPressureDataSizeThreshold" : "1 GB",
-              "backPressureObjectThreshold" : 10000,
               "bends" : [ ],
               "componentType" : "CONNECTION",
               "destination" : {
@@ -1620,6 +1584,42 @@
                 "groupId" : "2331cbeb-527b-3fde-b861-056a19af37dd",
                 "id" : "dfc387aa-b7ab-3ad1-85a4-e12200bfb18f",
                 "name" : "Is Success",
+                "type" : "PROCESSOR"
+              },
+              "zIndex" : 0
+            }, {
+              "backPressureDataSizeThreshold" : "1 GB",
+              "backPressureObjectThreshold" : 10000,
+              "bends" : [ {
+                "x" : 1000.0,
+                "y" : 592.0
+              }, {
+                "x" : 1000.0,
+                "y" : 184.0
+              } ],
+              "componentType" : "CONNECTION",
+              "destination" : {
+                "comments" : "",
+                "groupId" : "2331cbeb-527b-3fde-b861-056a19af37dd",
+                "id" : "87594893-d8b1-3af6-8b54-3962fcb84acb",
+                "name" : "Get Error Response",
+                "type" : "PROCESSOR"
+              },
+              "flowFileExpiration" : "0 sec",
+              "groupIdentifier" : "2331cbeb-527b-3fde-b861-056a19af37dd",
+              "identifier" : "67e2b44b-3b5f-339e-97ce-131fa664723c",
+              "labelIndex" : 0,
+              "loadBalanceCompression" : "DO_NOT_COMPRESS",
+              "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+              "name" : "",
+              "partitioningAttribute" : "",
+              "prioritizers" : [ ],
+              "selectedRelationships" : [ "No Retry", "Retry" ],
+              "source" : {
+                "comments" : "",
+                "groupId" : "2331cbeb-527b-3fde-b861-056a19af37dd",
+                "id" : "1b150444-be58-3ffc-8e79-101c87462e25",
+                "name" : "Invoke POST /metadata",
                 "type" : "PROCESSOR"
               },
               "zIndex" : 0
@@ -2080,7 +2080,7 @@
               "type" : "org.apache.nifi.processors.standard.JoltTransformJSON",
               "yieldDuration" : "1 sec"
             }, {
-              "autoTerminatedRelationships" : [ "Retry", "Original", "Failure" ],
+              "autoTerminatedRelationships" : [ "Original", "Failure" ],
               "bulletinLevel" : "WARN",
               "bundle" : {
                 "artifact" : "nifi-standard-nar",
@@ -2490,7 +2490,7 @@
               "properties" : {
                 "Store State" : "Do not store state",
                 "canonical-value-lookup-cache-size" : "100",
-                "response" : "${invokehttp.response.body}"
+                "response" : "${invokehttp.response.body:substringBefore(','):substringBefore('}'):append('}')}"
               },
               "propertyDescriptors" : {
                 "Delete Attributes Expression" : {
