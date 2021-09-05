@@ -1,6 +1,6 @@
 flows:
-  48b1a123-9cf2-454c-839e-27a8bf586b0e: {ver: 16, file: 3D_Ingestion_Data_Flow.snapshot,
-    comments: remove unnecessary output, author: anonymous, created: 1625643211339,
-    flowName: 3D Ingestion Data Flow, flowDesc: ''}
+  48b1a123-9cf2-454c-839e-27a8bf586b0e: {ver: 17, file: 3D_Ingestion_Data_Flow.snapshot,
+    comments: 'fix: writing to s3 ', author: anonymous, created: 1630839067417, flowName: 3D
+      Ingestion Data Flow, flowDesc: ''}
 layoutVer: 1
 bucketId: ed5e9150-8184-4c20-a4d1-5e9f4010446f
